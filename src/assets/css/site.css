@@ -65,6 +65,29 @@ h1{
   color:#6b5d52;-webkit-text-fill-color:#6b5d52;max-width:54ch;
 }
 
+/* ---------- Hero image ---------- */
+.recipe-image{margin:36px 0 8px;}
+.recipe-image img{
+  display:block;width:100%;height:auto;border-radius:10px;
+  border:1px solid #e3d8c4;
+}
+.recipe-image figcaption{
+  font-family:'Spline Sans Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:#6b5d52;-webkit-text-fill-color:#6b5d52;
+  margin-top:12px;
+}
+
+/* ---------- Head notes ---------- */
+.head-notes{
+  margin:32px 0 8px;padding:22px 24px;background:#faf6ec;
+  border:1px solid #e3d8c4;border-left:2px solid #c98a2b;border-radius:8px;
+}
+.head-notes .section-label{margin-bottom:12px;}
+.head-notes-body{
+  font-family:'Fraunces',Georgia,serif;font-size:1.05rem;
+  color:#2a211c;-webkit-text-fill-color:#2a211c;
+}
+
 /* ---------- Meta row ---------- */
 .meta{
   display:flex;flex-wrap:wrap;gap:36px;margin:40px 0 8px;padding:24px 0;
@@ -161,6 +184,20 @@ h1{
 
 /* ---------- Comments placeholder ---------- */
 .comments{margin-top:64px;padding-top:32px;border-top:1px solid #e3d8c4;}
+.comments-stub{
+  margin-top:18px;padding:28px 24px;background:#faf6ec;
+  border:1px dashed #d8cbb5;border-radius:8px;text-align:center;
+}
+.comments-stub p{
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.05rem;
+  color:#2a211c;-webkit-text-fill-color:#2a211c;
+}
+.comments-stub-hint{
+  font-family:'Spline Sans Mono',monospace;font-style:normal !important;
+  font-size:0.72rem;line-height:1.7;letter-spacing:0.04em;
+  color:#6b5d52;-webkit-text-fill-color:#6b5d52;
+  max-width:52ch;margin:12px auto 0;
+}
 
 /* ============================================================
    PRINT
