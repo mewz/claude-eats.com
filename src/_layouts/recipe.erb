@@ -8,6 +8,24 @@ layout: default
     <% if resource.data.dek %><p class="dek"><%= resource.data.dek %></p><% end %>
   </header>
 
+  <%# ---- Optional hero image. Renders only if `image:` is set in front matter. ---- %>
+  <% if resource.data.image %>
+    <figure class="recipe-image">
+      <img src="<%= resource.data.image %>" alt="<%= resource.data.image_alt || resource.data.title %>">
+      <% if resource.data.image_caption %>
+        <figcaption><%= resource.data.image_caption %></figcaption>
+      <% end %>
+    </figure>
+  <% end %>
+
+  <%# ---- Optional head notes. Personal intro under the dek. Set `notes:` in front matter. ---- %>
+  <% if resource.data.notes %>
+    <div class="head-notes">
+      <div class="section-label">Notes</div>
+      <div class="head-notes-body"><%= resource.data.notes %></div>
+    </div>
+  <% end %>
+
   <div class="meta">
     <% if resource.data.time_active %>
       <div class="item"><span class="label">Active</span><span class="value"><%= resource.data.time_active %></span></div>
@@ -69,30 +87,37 @@ layout: default
     </section>
   </div>
 
-  <!-- ============================================================
-       COMMENTS + RANKING — drop-in, currently disabled.
-       Pick a provider, uncomment, and it appears on every recipe.
+  <%# ============================================================
+       COMMENTS + RANKING
+       Visible placeholder so you can see where it lands. When you
+       pick a provider, delete the .comments-stub div and uncomment
+       the Giscus block below it.
+       ============================================================ %>
+  <section class="comments">
+    <div class="section-label">Notes from the kitchen</div>
 
-       Giscus example (GitHub Discussions backed):
-       <section class="comments">
-         <div class="section-label">Notes from the kitchen</div>
-         <script src="https://giscus.app/client.js"
-                 data-repo="YOURUSER/claude-eats-comments"
-                 data-repo-id="..."
-                 data-category="Recipes"
-                 data-category-id="..."
-                 data-mapping="pathname"
-                 data-reactions-enabled="1"
-                 data-theme="light"
-                 crossorigin="anonymous" async>
-         </script>
-       </section>
+    <div class="comments-stub">
+      <p>Comments &amp; ratings mount here.</p>
+      <p class="comments-stub-hint">
+        Replace this block with your provider's embed (Giscus snippet is
+        commented below in the layout). Reactions cover thumbs ratings;
+        a star widget mounts the same way, keyed on the recipe slug.
+      </p>
+    </div>
 
-       Reactions/ranking: Giscus reactions cover a thumbs rating out of
-       the box (data-reactions-enabled="1"). For a star rating, a
-       separate widget (e.g. a small localStorage or backed star control)
-       mounts the same way, keyed on resource.data.title.
-       ============================================================ -->
+    <%#
+      <script src="https://giscus.app/client.js"
+              data-repo="YOURUSER/claude-eats-comments"
+              data-repo-id="..."
+              data-category="Recipes"
+              data-category-id="..."
+              data-mapping="pathname"
+              data-reactions-enabled="1"
+              data-theme="light"
+              crossorigin="anonymous" async>
+      </script>
+    %>
+  </section>
 
 </main>
 

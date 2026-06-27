@@ -2,6 +2,15 @@
 title: Reverse Sear Tri-Tip
 kicker: Beef · Reverse Sear
 dek: Smoke it low until it's nearly there, then sear it hard. The default move for a thick cut, and the only honest way to cook tri-tip evenly edge to edge.
+# Optional hero image — drop a file in /assets/images/ and point to it.
+# Delete these three lines for a no-image card (the layout hides it).
+# image: /assets/images/some_image.jpg
+# image_alt: alt text
+# image_caption: image caption
+# # Optional head notes — your personal intro, shown under the dek.
+# # Delete this field for no notes block.
+# notes: >-
+#   Add your notes here
 servings: 6
 scaler: true
 time_active: 30 min
