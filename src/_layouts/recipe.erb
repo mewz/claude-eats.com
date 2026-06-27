@@ -1,0 +1,101 @@
+---
+layout: default
+---
+<main class="wrap" data-recipe data-base-servings="<%= resource.data.servings || 4 %>">
+  <header class="recipe">
+    <div class="kicker"><%= resource.data.kicker || "Recipe" %></div>
+    <h1><%= resource.data.title %></h1>
+    <% if resource.data.dek %><p class="dek"><%= resource.data.dek %></p><% end %>
+  </header>
+
+  <div class="meta">
+    <% if resource.data.time_active %>
+      <div class="item"><span class="label">Active</span><span class="value"><%= resource.data.time_active %></span></div>
+    <% end %>
+    <% if resource.data.time_total %>
+      <div class="item"><span class="label">Total</span><span class="value"><%= resource.data.time_total %></span></div>
+    <% end %>
+    <div class="item">
+      <span class="label">Servings</span>
+      <% if resource.data.scaler %>
+        <span class="value scaler">
+          <button class="minus" aria-label="Fewer servings">–</button>
+          <span class="count"><%= resource.data.servings || 4 %></span>
+          <button class="plus" aria-label="More servings">+</button>
+        </span>
+      <% else %>
+        <span class="value"><%= resource.data.servings || 4 %></span>
+      <% end %>
+    </div>
+    <% if resource.data.equipment %>
+      <div class="item"><span class="label">Gear</span><span class="value"><%= resource.data.equipment %></span></div>
+    <% end %>
+  </div>
+
+  <div class="body-grid">
+    <aside class="ingredients">
+      <div class="section-label">Ingredients</div>
+      <ul>
+        <% (resource.data.ingredients || []).each do |ing| %>
+          <li>
+            <span><%= ing["name"] %></span>
+            <% if ing["amount"] %>
+              <span class="amt" data-base="<%= ing["amount"] %>" data-unit="<%= ing["unit"] %>"><%= ing["amount"] %><%= ing["unit"] ? " #{ing["unit"]}" : "" %></span>
+            <% elsif ing["note"] %>
+              <span class="amt"><%= ing["note"] %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <button class="print-btn" onclick="window.print()">Print card</button>
+    </aside>
+
+    <section class="method">
+      <div class="section-label">Method</div>
+      <ol>
+        <% (resource.data.steps || []).each do |step| %>
+          <li>
+            <div class="step-body"><%= step["text"] %></div>
+            <% if step["why"] %>
+              <div class="why"><b>Why</b><%= step["why"] %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+
+      <% if resource.content && !resource.content.strip.empty? %>
+        <div class="notes"><%= yield %></div>
+      <% end %>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       COMMENTS + RANKING — drop-in, currently disabled.
+       Pick a provider, uncomment, and it appears on every recipe.
+
+       Giscus example (GitHub Discussions backed):
+       <section class="comments">
+         <div class="section-label">Notes from the kitchen</div>
+         <script src="https://giscus.app/client.js"
+                 data-repo="YOURUSER/claude-eats-comments"
+                 data-repo-id="..."
+                 data-category="Recipes"
+                 data-category-id="..."
+                 data-mapping="pathname"
+                 data-reactions-enabled="1"
+                 data-theme="light"
+                 crossorigin="anonymous" async>
+         </script>
+       </section>
+
+       Reactions/ranking: Giscus reactions cover a thumbs rating out of
+       the box (data-reactions-enabled="1"). For a star rating, a
+       separate widget (e.g. a small localStorage or backed star control)
+       mounts the same way, keyed on resource.data.title.
+       ============================================================ -->
+
+</main>
+
+<% if resource.data.scaler %>
+  <script src="/assets/js/scaler.js"></script>
+<% end %>

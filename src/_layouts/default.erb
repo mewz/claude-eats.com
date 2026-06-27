@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= resource.data.title ? "#{resource.data.title} · #{site.metadata.title}" : site.metadata.title %></title>
+  <meta name="description" content="<%= resource.data.dek || site.metadata.description %>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Spline+Sans+Mono:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="brand" href="/">Claude Eats</a>
+    <span class="links">
+      <a href="/">Recipes</a>
+      <a href="/about/">About</a>
+    </span>
+  </nav>
+
+  <%= yield %>
+
+  <footer class="site-footer">
+    <div class="wrap" style="padding-top:32px;border-top:1px solid var(--line);">
+      <p style="font-family:'Spline Sans Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--smoke);">
+        Claude Eats · cooking from what's on hand
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

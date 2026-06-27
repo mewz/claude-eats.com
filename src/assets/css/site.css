@@ -1,0 +1,178 @@
+/* ============================================================
+   Claude Eats — shared design system
+   Fraunces / Spline Sans Mono / Work Sans
+   Ember + gold on paper. Forced light mode (mobile readability).
+   ============================================================ */
+
+:root{
+  color-scheme: only light;
+  --ember:#b5391f;
+  --ember-deep:#8a2914;
+  --ash:#2a211c;
+  --char:#1a1512;
+  --smoke:#6b5d52;
+  --paper:#ffffff;
+  --paper-warm:#faf6ec;
+  --cream:#faf6ec;
+  --gold:#c98a2b;
+  --line:#e3d8c4;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;background:#ffffff;}
+body{
+  font-family:'Work Sans',sans-serif;
+  background:#ffffff;
+  color:#2a211c;
+  -webkit-text-fill-color:#2a211c;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px 100px;background:#ffffff;}
+
+/* ---------- Site header / nav ---------- */
+.site-nav{
+  max-width:820px;margin:0 auto;padding:28px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+}
+.site-nav a{color:#2a211c;-webkit-text-fill-color:#2a211c;text-decoration:none;}
+.site-nav .brand{
+  font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.3rem;
+  letter-spacing:-0.01em;color:#1a1512;-webkit-text-fill-color:#1a1512;
+}
+.site-nav .links{
+  font-family:'Spline Sans Mono',monospace;font-size:0.74rem;
+  letter-spacing:0.16em;text-transform:uppercase;display:flex;gap:22px;
+}
+.site-nav .links a:hover{color:#b5391f;-webkit-text-fill-color:#b5391f;}
+
+/* ---------- Recipe header ---------- */
+header.recipe{padding:48px 0 0;position:relative;}
+.kicker{
+  font-family:'Spline Sans Mono',monospace;font-size:0.72rem;
+  letter-spacing:0.32em;text-transform:uppercase;
+  color:#b5391f;-webkit-text-fill-color:#b5391f;
+  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.kicker::after{content:"";flex:1;height:1px;background:#e3d8c4;}
+h1{
+  font-family:'Fraunces',Georgia,serif;font-weight:600;
+  font-size:clamp(2.3rem,6vw,3.6rem);line-height:1.05;letter-spacing:-0.02em;
+  color:#1a1512;-webkit-text-fill-color:#1a1512;margin-bottom:18px;
+}
+.dek{
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.16rem;
+  color:#6b5d52;-webkit-text-fill-color:#6b5d52;max-width:54ch;
+}
+
+/* ---------- Meta row ---------- */
+.meta{
+  display:flex;flex-wrap:wrap;gap:36px;margin:40px 0 8px;padding:24px 0;
+  border-top:1px solid #e3d8c4;border-bottom:1px solid #e3d8c4;
+}
+.meta .item{display:flex;flex-direction:column;gap:4px;}
+.meta .label{
+  font-family:'Spline Sans Mono',monospace;font-size:0.66rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:#6b5d52;-webkit-text-fill-color:#6b5d52;
+}
+.meta .value{
+  font-family:'Spline Sans Mono',monospace;font-size:0.98rem;font-weight:500;
+  color:#2a211c;-webkit-text-fill-color:#2a211c;
+}
+
+/* ---------- Serving scaler ---------- */
+.scaler{display:flex;align-items:center;gap:10px;}
+.scaler button{
+  font-family:'Spline Sans Mono',monospace;font-size:1rem;width:30px;height:30px;
+  border:1px solid #d8cbb5;background:#faf6ec;color:#b5391f;-webkit-text-fill-color:#b5391f;
+  border-radius:6px;cursor:pointer;line-height:1;
+}
+.scaler button:hover{background:#b5391f;color:#fff;-webkit-text-fill-color:#fff;}
+.scaler .count{
+  font-family:'Spline Sans Mono',monospace;font-weight:500;min-width:2ch;text-align:center;
+}
+
+/* ---------- Body grid: sticky ingredients ---------- */
+.body-grid{display:grid;grid-template-columns:300px 1fr;gap:54px;margin-top:48px;}
+@media (max-width:720px){.body-grid{grid-template-columns:1fr;gap:36px;}}
+
+.ingredients{align-self:start;position:sticky;top:28px;}
+@media (max-width:720px){.ingredients{position:static;}}
+.section-label{
+  font-family:'Spline Sans Mono',monospace;font-size:0.7rem;letter-spacing:0.24em;
+  text-transform:uppercase;color:#b5391f;-webkit-text-fill-color:#b5391f;
+  margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #e3d8c4;
+}
+.ingredients ul{list-style:none;}
+.ingredients li{
+  display:flex;justify-content:space-between;gap:14px;padding:9px 0;
+  border-bottom:1px solid #f0e7d6;font-size:0.96rem;
+}
+.ingredients .amt{
+  font-family:'Spline Sans Mono',monospace;font-size:0.9rem;font-weight:500;
+  color:#8a2914;-webkit-text-fill-color:#8a2914;white-space:nowrap;
+}
+
+/* ---------- Method ---------- */
+.method ol{list-style:none;counter-reset:step;}
+.method li{counter-increment:step;margin-bottom:30px;padding-left:48px;position:relative;}
+.method li::before{
+  content:counter(step);position:absolute;left:0;top:-2px;
+  font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.3rem;
+  color:#c98a2b;-webkit-text-fill-color:#c98a2b;width:34px;text-align:center;
+}
+.method .step-body{font-size:1.02rem;}
+.why{
+  margin-top:12px;padding:12px 16px;background:#faf6ec;border-left:2px solid #c98a2b;
+  font-size:0.9rem;color:#6b5d52;-webkit-text-fill-color:#6b5d52;
+}
+.why b{
+  font-family:'Spline Sans Mono',monospace;font-size:0.66rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:#b5391f;-webkit-text-fill-color:#b5391f;
+  display:block;margin-bottom:4px;font-weight:500;
+}
+
+/* ---------- Index / listing ---------- */
+.lede{padding:56px 0 8px;}
+.recipe-list{list-style:none;margin-top:40px;}
+.recipe-list li{border-top:1px solid #e3d8c4;padding:26px 0;}
+.recipe-list li:last-child{border-bottom:1px solid #e3d8c4;}
+.recipe-list a{
+  font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.5rem;
+  color:#1a1512;-webkit-text-fill-color:#1a1512;text-decoration:none;
+}
+.recipe-list a:hover{color:#b5391f;-webkit-text-fill-color:#b5391f;}
+.recipe-list .card-dek{
+  font-family:'Fraunces',Georgia,serif;font-style:italic;color:#6b5d52;
+  -webkit-text-fill-color:#6b5d52;margin-top:6px;
+}
+.recipe-list .tags{
+  font-family:'Spline Sans Mono',monospace;font-size:0.66rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:#c98a2b;-webkit-text-fill-color:#c98a2b;margin-top:10px;
+}
+
+.print-btn{
+  font-family:'Spline Sans Mono',monospace;font-size:0.7rem;letter-spacing:0.16em;
+  text-transform:uppercase;background:none;border:1px solid #d8cbb5;border-radius:6px;
+  padding:8px 14px;color:#b5391f;-webkit-text-fill-color:#b5391f;cursor:pointer;margin-top:20px;
+}
+.print-btn:hover{background:#b5391f;color:#fff;-webkit-text-fill-color:#fff;}
+
+/* ---------- Comments placeholder ---------- */
+.comments{margin-top:64px;padding-top:32px;border-top:1px solid #e3d8c4;}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print{
+  @page{margin:1.5cm;}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .site-nav,.scaler button,.print-btn,.comments,.site-footer{display:none !important;}
+  .wrap{max-width:100%;padding:0;}
+  .body-grid{grid-template-columns:1fr;gap:24px;}
+  .ingredients{position:static;}
+  .method li{break-inside:avoid;}
+  .why{break-inside:avoid;background:#f7f2e8 !important;}
+  a[href]::after{content:"";}
+}

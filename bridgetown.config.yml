@@ -1,0 +1,32 @@
+url: "https://claude-eats.com"
+title: "Claude Eats"
+tagline: "Cooking from what's on hand"
+description: >-
+  A working cook's library — pantry-driven recipe cards built around farmers
+  market hauls, Wild Fork proteins, and whatever's already on the shelf.
+
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:slug/
+    sort_by: title
+
+# Front matter defaults: every recipe card gets the recipe layout
+# and the serving-size scaler enabled unless it opts out.
+defaults:
+  - scope:
+      path: ""
+      collection: recipes
+    values:
+      layout: recipe
+      scaler: true
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Bridgetown build settings
+template_engine: erb
+permalink: pretty
+timezone: America/Los_Angeles
