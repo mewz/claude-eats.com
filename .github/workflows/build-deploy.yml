@@ -41,6 +41,10 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable Pages (with GitHub Actions as the source) on first run,
+          # so no manual Settings -> Pages toggle is required.
+          enablement: true
 
       # `rake` (default task) runs clean -> frontend:build (esbuild) -> bridgetown build
       - name: Build site
