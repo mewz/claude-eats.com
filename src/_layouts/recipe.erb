@@ -8,8 +8,19 @@ layout: default
     <% if resource.data.dek %><p class="dek"><%= resource.data.dek %></p><% end %>
   </header>
 
-  <%# ---- Optional hero image. Renders only if `image:` is set in front matter. ---- %>
-  <% if resource.data.image %>
+  <%# ---- Optional images. `images:` renders a gallery; `image:` renders a single hero. ---- %>
+  <% if resource.data.images && !resource.data.images.empty? %>
+    <figure class="recipe-image recipe-gallery">
+      <div class="recipe-gallery-grid">
+        <% resource.data.images.each do |img| %>
+          <img src="<%= img["src"] %>" alt="<%= img["alt"] || resource.data.title %>">
+        <% end %>
+      </div>
+      <% if resource.data.image_caption %>
+        <figcaption><%= resource.data.image_caption %></figcaption>
+      <% end %>
+    </figure>
+  <% elsif resource.data.image %>
     <figure class="recipe-image">
       <img src="<%= resource.data.image %>" alt="<%= resource.data.image_alt || resource.data.title %>">
       <% if resource.data.image_caption %>
