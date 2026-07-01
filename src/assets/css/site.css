@@ -76,6 +76,16 @@ h1{
   text-transform:uppercase;color:#6b5d52;-webkit-text-fill-color:#6b5d52;
   margin-top:12px;
 }
+.recipe-gallery-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.recipe-gallery-grid img{
+  display:block;width:100%;height:auto;border-radius:10px;
+  border:1px solid #e3d8c4;
+}
+@media (max-width:560px){
+  .recipe-gallery-grid{grid-template-columns:1fr;}
+}
 
 /* ---------- Head notes ---------- */
 .head-notes{
