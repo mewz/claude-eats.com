@@ -8,9 +8,9 @@ dek: Basmati bloomed with star anise and cardamom, Ramsay-style.
 # image_alt: alt text
 # Two-image gallery: first the rice cooking, then the finished pot.
 images:
-  - src: /assets/images/aromatic_basmati_rice_cooking.jpeg
+  - src: /assets/images/aromatic_basmati_rice_cooking.jpg
     alt: Basmati rice cooking — water simmering with bloomed star anise, cardamom, and bay leaf
-  - src: /assets/images/aromatic_basmati_rice_done.jpeg
+  - src: /assets/images/aromatic_basmati_rice_done.jpg
     alt: Finished aromatic basmati rice, fluffed and fluffy in the pot
 image_caption: Don't take the cover off until it's done, then fluff with a fork. Season for salt.
 # Optional head notes — personal intro, shown under the dek.
